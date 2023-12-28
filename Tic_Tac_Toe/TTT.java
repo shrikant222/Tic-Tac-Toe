@@ -62,7 +62,9 @@ public class TTT {
             }
         }
 
-
+        private static boolean isValidMove(char[][] board, int row, int col) {
+            return row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ';
+        }
 
         private static boolean isWinner(char[][]board, char player) {
             for (int row = 0; row < board.length; row++) {
@@ -84,7 +86,16 @@ public class TTT {
             return false;
         }
 
-
+        private static boolean isBoardFull(char[][] board) {
+            for (int row = 0; row < board.length; row++) {
+                for (int col = 0; col < board[row].length; col++) {
+                    if (board[row][col] == ' ') {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 
 
